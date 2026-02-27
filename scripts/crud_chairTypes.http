@@ -1,0 +1,25 @@
+POST http://localhost:3000/addchairtype.test.php
+Content-Type: application/x-www-form-urlencoded
+
+ChairTypeID=4
+&ChairTypeCode=TAB
+&ChairTypeName=Table
+&ChairAisleNumber=20
+
+###
+GET http://localhost:3000/listchairtypes.test.php
+
+###
+POST http://localhost:3000/changechairtype.test.php
+Content-Type: application/x-www-form-urlencoded
+
+ChairTypeID=4
+&ChairTypeCode=TAB-MOD
+&ChairTypeName=BigTable
+&ChairAisleNumber=22
+
+###
+POST http://localhost:3000/removechairtype.test.php
+Content-Type: application/x-www-form-urlencoded
+
+ChairTypeID=4

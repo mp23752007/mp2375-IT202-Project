@@ -1,0 +1,39 @@
+POST http://localhost:3000/addchair.test.php
+Content-Type: application/x-www-form-urlencoded
+
+ChairID=15
+&ChairCode=OFF-05
+&ChairName=Orthopedic Guest
+&ChairDescription=These stackable guest chairs feature an orthopedic design to ensure maximum comfort for clients in your waiting area. The reinforced steel frame supports up to 300 pounds while remaining lightweight and easy to move.
+&ChairMaterial=Fabric
+&ChairStyle=Minimalist
+&ChairTypeID=3
+&ChairBuyPrice=65.00
+&ChairSellPrice=110.00
+
+###
+GET http://localhost:3000/listchairs.test.php
+
+###
+POST http://localhost:3000/changechair.test.php
+Content-Type: application/x-www-form-urlencoded
+
+ChairID=2
+&ChairCode=OFC-02
+&ChairName=Executive Office Updated
+&ChairDescription=Now with armrests.
+&ChairMaterial=Mesh
+&ChairStyle=Executive
+&ChairTypeID=3
+&ChairBuyPrice=160.00
+&ChairSellPrice=230.00
+
+###
+POST http://localhost:3000/removechair.test.php
+Content-Type: application/x-www-form-urlencoded
+
+ChairID=1
+
+
+
+
