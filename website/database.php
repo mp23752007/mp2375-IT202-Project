@@ -9,7 +9,6 @@ Email: mp2375
 
 function getDB($echo_mode = false)
 {
-    // These match your database 2 requirements but use the database 1 style
     $host = 'localhost';
     $port = 3306;
     $dbname = 'chair';
@@ -25,8 +24,7 @@ function getDB($echo_mode = false)
     } catch (mysqli_sql_exception $e) {
         error_log("Database connection failed: " . $e->getMessage());
         if ($echo_mode) echo "Database connection failed: " . $e->getMessage();
-        // Returning null helps validate.inc.php know the connection failed
         return null;
     }
 }
-// getDB(true);
+?>

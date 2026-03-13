@@ -1,6 +1,11 @@
 <?php
-/* Name: Mahi Patel | Date: Feb 27, 2026 | IT-202-004 */
-class ChairType {
+/* Name: Mahi Patel 
+Date: March 13, 2026
+Course: IT-202
+Section: 004
+Assignment: Phase 3
+Email: mp2375
+*/class ChairType {
     public $chair_type_id, $chair_type_code, $chair_type_name, $chair_aisle_number;
 
     public function __construct($id, $code, $name, $aisle) {
@@ -14,7 +19,9 @@ class ChairType {
         $stmt->execute();
     }
 
-    public static function listAll($db) { return $db->query("SELECT * FROM chair_types"); }
+    public static function listAll($db) { 
+        return $db->query("SELECT * FROM chair_types"); 
+    }
 
     public function update($db) {
         $stmt = $db->prepare("UPDATE chair_types SET chair_type_code=?, chair_type_name=?, chair_aisle_number=? WHERE chair_type_id=?");
@@ -24,7 +31,16 @@ class ChairType {
 
     public static function remove($db, $id) {
         $stmt = $db->prepare("DELETE FROM chair_types WHERE chair_type_id=?");
-        $stmt->bind_param("i", $id); $stmt->execute();
+        $stmt->bind_param("i", $id); 
+        $stmt->execute();
+    }
+
+    public static function find($db, $id) {
+        $stmt = $db->prepare("SELECT * FROM chair_types WHERE chair_type_id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
     }
 }
 ?>

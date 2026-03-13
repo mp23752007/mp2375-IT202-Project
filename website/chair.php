@@ -1,6 +1,11 @@
 <?php
-/* Name: Mahi Patel | Date: Feb 27, 2026 | IT-202-004 */
-class Chair {
+/* Name: Mahi Patel 
+Date: March 13, 2026
+Course: IT-202
+Section: 004
+Assignment: Phase 3
+Email: mp2375
+*/class Chair {
     public $chair_id, $chair_code, $chair_name, $chair_description, $chair_material, $chair_style, $chair_type_id, $chair_buy_price, $chair_sell_price;
 
     public function __construct($id, $code, $name, $desc, $mat, $sty, $tid, $buy, $sell) {
@@ -14,7 +19,9 @@ class Chair {
         $stmt->execute();
     }
 
-    public static function listAll($db) { return $db->query("SELECT * FROM chairs"); }
+    public static function listAll($db) { 
+        return $db->query("SELECT * FROM chairs"); 
+    }
 
     public function update($db) {
         $stmt = $db->prepare("UPDATE chairs SET chair_code=?, chair_name=?, chair_description=?, chair_material=?, chair_style=?, chair_type_id=?, chair_buy_price=?, chair_sell_price=? WHERE chair_id=?");
@@ -24,7 +31,16 @@ class Chair {
 
     public static function remove($db, $id) {
         $stmt = $db->prepare("DELETE FROM chairs WHERE chair_id=?");
-        $stmt->bind_param("i", $id); $stmt->execute();
+        $stmt->bind_param("i", $id); 
+        $stmt->execute();
+    }
+
+    public static function find($db, $id) {
+        $stmt = $db->prepare("SELECT * FROM chairs WHERE chair_id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
     }
 }
 ?>
