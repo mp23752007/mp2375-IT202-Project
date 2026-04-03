@@ -1,40 +1,35 @@
-<?php
-/* Name: Mahi Patel 
+<?php /* Name: Mahi Patel 
 Date: March 13, 2026
 Course: IT-202
 Section: 004
 Assignment: Phase 3
 Email: mp2375
 */
-?>
+ ?>
 <nav>
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="index.php?content=listchairtypes">List Chair Types</a></li>
-        <li><a href="index.php?content=newchairtype">Add New Chair Type</a></li>
-        <li><a href="index.php?content=listchairs">List Chairs</a></li>
-        <li><a href="index.php?content=newchair">Add New Chair</a></li>
+    <ul class="nav-links">
+        <li><a href="index.php"><img src="images/home.png" height="16"> Home</a></li>
+        <li><a href="index.php?content=listchairtypes"><img src="images/categories.png" height="16"> List Types</a></li>
+        <li><a href="index.php?content=newchairtype"><img src="images/categories.png" height="16"> Add Type</a></li>
+        <li><a href="index.php?content=listchairs"><img src="images/items.png" height="16"> List Chairs</a></li>
+        <li><a href="index.php?content=newchair"><img src="images/items.png" height="16"> Add Chair</a></li>
     </ul>
+    
+    <div class="search-row">
+        <form action="index.php" method="get" style="display:inline;">
+            <input type="hidden" name="content" value="updatechair">
+            Chair ID: <input type="text" name="chairID" style="width:40px;" required>
+            <button type="submit"><img src="images/realtime.png" height="14"> Search</button>
+        </form>
 
-    <br>
+        <form action="index.php" method="get" style="display:inline;">
+            <input type="hidden" name="content" value="displaychairtype">
+            Type ID: <input type="text" name="typeID" style="width:40px;" required>
+            <button type="submit"><img src="images/realtime.png" height="14"> Search</button>
+        </form>
 
-    <form action="index.php" method="get" style="margin-bottom: 15px;">
-        <input type="hidden" name="content" value="updatechair">
-        <label>Search for Chair:</label>
-        <input type="text" name="chairID" required>
-        <input type="submit" value="Search">
-    </form>
-
-    <form action="index.php" method="get" style="margin-bottom: 25px;">
-        <input type="hidden" name="content" value="displaychairtype">
-        <label>Search for Chair Type:</label>
-        <input type="text" name="typeID" required>
-        <input type="submit" value="Search">
-    </form>
-
-    <form action="index.php" method="get">
-        <input type="hidden" name="content" value="logout">
-        <input type="submit" value="Logout">
-    </form>
+        <a href="logout.inc.php" class="logout-btn" style="text-decoration:none;">
+            <img src="images/logout.png" height="14"> Logout
+        </a>
+    </div>
 </nav>
-<hr>

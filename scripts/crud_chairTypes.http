@@ -22,4 +22,4 @@ ChairTypeID=4
 POST http://localhost:3000/removechairtype.test.php
 Content-Type: application/x-www-form-urlencoded
 
-ChairTypeID=4
+ChairTypeID=-50

@@ -1,0 +1,39 @@
+/* Name: Mahi Patel 
+Date: March 13, 2026
+Course: IT-202
+Section: 004
+Assignment: Phase 3
+Email: mp2375
+*/
+body { background-color: #E7D7CF; margin: 0; padding: 20px; }
+
+header, nav, main, footer {
+    width: 900px; margin: 0 auto; box-sizing: border-box;
+    border-left: 3px solid #1E1309; border-right: 3px solid #1E1309;
+}
+
+header {
+    background-color: #6E533C; 
+    border-top: 3px solid #1E1309;
+    border-radius: 10px 10px 0 0;
+}
+
+nav {
+    background-color: #F5ADB6; 
+    height: 145px; padding: 15px;
+    border-top: 2px solid #1E1309; border-bottom: 2px solid #1E1309;
+}
+
+main { background-color: #E7D7CF; min-height: 450px; padding: 30px; }
+
+footer {
+    background-color: #6E533C; color: #E7D7CF; height: 240px; padding: 20px;
+    border-bottom: 3px solid #1E1309; border-radius: 0 0 10px 10px; text-align: center;
+}
+
+button, input[type="submit"], .logout-btn {
+    background-color: #A56258; color: #E7D7CF; border: 2px solid #1E1309;
+    padding: 5px 12px; cursor: pointer; font-weight: bold;
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 5px;
+}

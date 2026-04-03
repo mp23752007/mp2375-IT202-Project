@@ -1,22 +1,46 @@
 <?php
 /* Name: Mahi Patel 
 Date: March 13, 2026
-Course: IT-202
-Section: 004
-Assignment: Phase 3
-Email: mp2375
-*/class Chair {
-    public $chair_id, $chair_code, $chair_name, $chair_description, $chair_material, $chair_style, $chair_type_id, $chair_buy_price, $chair_sell_price;
+Course: IT-202-004
+Assignment: Phase 4
+Email: mp2375@njit.edu
+*/
+
+class Chair {
+    public $chair_id, $chair_code, $chair_name, $chair_description, 
+           $chair_material, $chair_style, $chair_type_id, 
+           $chair_buy_price, $chair_sell_price;
 
     public function __construct($id, $code, $name, $desc, $mat, $sty, $tid, $buy, $sell) {
-        $this->chair_id = $id; $this->chair_code = $code; $this->chair_name = $name; $this->chair_description = $desc;
-        $this->chair_material = $mat; $this->chair_style = $sty; $this->chair_type_id = $tid; $this->chair_buy_price = $buy; $this->chair_sell_price = $sell;
+        $this->chair_id = $id; 
+        $this->chair_code = $code; 
+        $this->chair_name = $name; 
+        $this->chair_description = $desc;
+        $this->chair_material = $mat; 
+        $this->chair_style = $sty; 
+        $this->chair_type_id = $tid; 
+        $this->chair_buy_price = $buy; 
+        $this->chair_sell_price = $sell;
     }
 
     public function save($db) {
-        $stmt = $db->prepare("INSERT INTO chairs (chair_id, chair_code, chair_name, chair_description, chair_material, chair_style, chair_type_id, chair_buy_price, chair_sell_price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("isssssidd", $this->chair_id, $this->chair_code, $this->chair_name, $this->chair_description, $this->chair_material, $this->chair_style, $this->chair_type_id, $this->chair_buy_price, $this->chair_sell_price);
-        $stmt->execute();
+        try {
+            $stmt = $db->prepare("INSERT INTO chairs (chair_id, chair_code, chair_name, chair_description, chair_material, chair_style, chair_type_id, chair_buy_price, chair_sell_price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("isssssidd", 
+                $this->chair_id, 
+                $this->chair_code, 
+                $this->chair_name, 
+                $this->chair_description, 
+                $this->chair_material, 
+                $this->chair_style, 
+                $this->chair_type_id, 
+                $this->chair_buy_price, 
+                $this->chair_sell_price
+            );
+            return $stmt->execute();
+        } catch (mysqli_sql_exception $e) {
+            return false; 
+        }
     }
 
     public static function listAll($db) { 
@@ -25,14 +49,24 @@ Email: mp2375
 
     public function update($db) {
         $stmt = $db->prepare("UPDATE chairs SET chair_code=?, chair_name=?, chair_description=?, chair_material=?, chair_style=?, chair_type_id=?, chair_buy_price=?, chair_sell_price=? WHERE chair_id=?");
-        $stmt->bind_param("sssssiddi", $this->chair_code, $this->chair_name, $this->chair_description, $this->chair_material, $this->chair_style, $this->chair_type_id, $this->chair_buy_price, $this->chair_sell_price, $this->chair_id);
-        $stmt->execute();
+        $stmt->bind_param("sssssiddi", 
+            $this->chair_code, 
+            $this->chair_name, 
+            $this->chair_description, 
+            $this->chair_material, 
+            $this->chair_style, 
+            $this->chair_type_id, 
+            $this->chair_buy_price, 
+            $this->chair_sell_price, 
+            $this->chair_id
+        );
+        return $stmt->execute();
     }
 
     public static function remove($db, $id) {
         $stmt = $db->prepare("DELETE FROM chairs WHERE chair_id=?");
         $stmt->bind_param("i", $id); 
-        $stmt->execute();
+        return $stmt->execute();
     }
 
     public static function find($db, $id) {
