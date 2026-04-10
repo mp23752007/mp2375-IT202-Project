@@ -4,7 +4,7 @@ Date: March 13, 2026
 Course: IT-202
 Section: 004
 Assignment: Phase 3
-Email: mp2375
+Email: mp2375@njit.edu
 */class ChairType {
     public $chair_type_id, $chair_type_code, $chair_type_name, $chair_aisle_number;
 

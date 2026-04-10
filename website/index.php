@@ -127,10 +127,19 @@ session_start();
         <main>
             <?php
             if (isset($_GET['content'])) {
-                $file = $_GET['content'] . '.inc.php';
-                if (file_exists($file)) include($file);
-                else echo "<h2>Page not found.</h2>";
-            } else include('main.inc.php');
+                $content = $_GET['content'];
+                
+            
+                if (file_exists("$content.inc.php")) {
+                    include("$content.inc.php");
+                } elseif (file_exists("$content.php")) {
+                    include("$content.php");
+                } else {
+                    echo "<h2>Page not found.</h2>";
+                }
+            } else {
+                include('main.inc.php');
+            }
             ?>
         </main>
         <?php include('footer.inc.php'); ?>
